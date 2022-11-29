@@ -9,15 +9,15 @@
 ## Contributions
 
 与旧模板相比，本模板的改进包括：
-- 编写了 `.sty` 文件，可用 `\usepackage` 命令作为宏包导入。相比于旧模板中`\include` `.tex` 的方式，使用`.sty` 文件的优势可参见stackexchange 上的[这个问题](https://tex.stackexchange.com/questions/91167/why-use-sty-files)。
-- 删除了重复造的轮子。例如，旧模板中设置字号的命令 `\yihao`、`\erhao`、... 、`\wuhao` 等现已删除，新模板采用了`ctex` 提供的标准命令`\zihao`。设置各级标题样式的命令也换用了 `ctex` 的 `\ctexset` 命令实现。
-- 旧模板使用的 `.bst` 文件不兼容 `natbib` 宏包，使得很多常见功能（如 `\citet`）受限。因此，新模板换用了 [gbt7714-bibtex-style](https://github.com/zepinglee/gbt7714-bibtex-style) 项目提供的 `.bst` 文件。
+- 编写了 `.sty` 文件，可用 `\usepackage` 命令作为宏包导入。相比于旧模板中`\include` `.tex` 的方式，使用`.sty` 文件的优势可参见 stackexchange 上的[这个问题](https://tex.stackexchange.com/questions/91167/why-use-sty-files)。
+- 删除了重复造的轮子。例如，旧模板中设置字号的命令 `\yihao`、`\erhao`、... 、`\wuhao` 等现已删除，新模板采用了`ctex` 提供的标准命令`\zihao`。设置各级标题样式的命令也通过 `ctex` 的 `\ctexset` 完成。
+- 旧模板使用的 `.bst` 文件不兼容 `natbib` 宏包，无法使用很多常见功能（如 `\citet`）。因此，新模板换用了 [gbt7714-bibtex-style](https://github.com/zepinglee/gbt7714-bibtex-style) 项目提供的 `.bst` 文件。
 - 简单问题简单化。扉页、声明、摘要等部分样式繁琐，但只出现一次。旧模板写了大量代码用于封装和抽象，把问题搞复杂了。新模板直接在实例中实现，不定义变量不搞封装，使用者按需修改也更加容易。
-- 对文件树进行了简化，只建立 `figures/` 和 `contents/` 两个子文件夹，分别存放图片和 `.tex` 子文件。其余文件均置于根目录下。
+- 对文件树进行了简化，只建立 `figures/` 和 `contents/` 两个子文件夹，分别存放图片和 `.tex` 子文件，其余文件一律放在根目录。
 
 ## How to use
 
-略。本模板默认申请天津大学学位的用户具备自主解决此问题的能力。
+简单来说记得用 `xelatex` 编译就好了。至于其他细节，网上可以找到的教程比我能写出的好一万倍。本模板默认天津大学硕/博学位申请人具备自主解决此问题的能力。
 
 ## Known Issues
 
