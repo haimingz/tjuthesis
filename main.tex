@@ -1,0 +1,32 @@
+\documentclass[openright]{book}
+% Windows 下加粗宋体会变成黑体，为了避免可以使用下面的命令
+% \documentclass[openright,fontset=fandol]{book}
+
+\usepackage{tjustyle}
+
+\graphicspath{{figures/}}
+
+\begin{document}
+
+\include{contents/titlepage} % 扉页
+\include{contents/declaration} % 独创性声明
+
+\frontmatter % 开始有页码（大写罗马）
+\include{contents/abstract} % 中英文摘要
+
+\tableofcontents % 目录
+
+\mainmatter % 进入正文部分，页码变为阿拉伯数字
+
+\include{contents/demo} % 导入正文示例
+
+\bibliographystyle{gbt7714} % 选择参考文献格式文件
+\bibliography{references} % 制定参考文献数据文件
+
+\include{contents/appendix} % 添加附录
+
+\backmatter % 以后的章节没有编号
+\include{contents/publications} % 发表论文和参加科研情况说明
+\include{contents/acknowledgements} % 致谢
+
+\end{document}
