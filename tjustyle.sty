@@ -133,10 +133,10 @@
 % 设置参考文献样式
 \let\oldbibliography\bibliography
 \renewcommand\bibliography[1]{
+    \addcontentsline{toc}{chapter}{参考文献} % 把参考文献添加到目录
     \setlength{\baselineskip}{17pt} % 行高 17pt
     \setlength{\bibsep}{3pt} % 条目之间 3pt 间距
     \oldbibliography{#1}
-    \addcontentsline{toc}{chapter}{参考文献} % 把参考文献添加到目录
     \setlength{\baselineskip}{20pt} % 参考文献结束，恢复到默认行高
 }
 
