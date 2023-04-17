@@ -6,9 +6,9 @@
 
 \ProvidesPackage{tjustyle}
 
-\RequirePackage[top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm]{geometry} % 页边距设置
+\RequirePackage[top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm, asymmetric]{geometry} % 页边距设置（asymmetric 选项使左右边距等宽，否则奇数页偶数页左右边距不一样，用惯了 word 的老师看着别扭）
 \RequirePackage[heading=true, zihao=-4]{ctex} % 支持中文的包，选项为开启中文章节图表标题，设置默认字号为小四
-\RequirePackage{emptypage} % 去除空白页的页眉页脚所需的包
+% \RequirePackage{emptypage} % 去除空白页的页眉页脚所需的包
 \RequirePackage{fancyhdr} % 自定义页眉页脚样式所需的包
 \RequirePackage{titletoc} % 用于设置目录样式的包
 \RequirePackage{caption} % 用于设置图表题注格式
@@ -27,7 +27,8 @@
 \RequirePackage{amsfonts} % 用于撰写公式
 
 % 设置正文行高为固定值20pt
-\renewcommand\normalsize{\setlength{\baselineskip}{20pt}}
+\renewcommand\normalsize{\setlength{\baselineskip}{20pt plus5pt minus0pt}} % 通过 plus minus 设置弹性行高，使排版更灵活
+\setlength{\parskip}{0pt plus10pt minus0pt} % 通过 plus minus 设置弹性段间距，使排版更灵活
 
 % 设置默认英文字体
 \setmainfont{Times New Roman}
@@ -128,7 +129,11 @@
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 
 % 设置图表编号与图表题注的分隔符
-\captionsetup{labelsep={period}}
+\captionsetup{labelsep=period, labelsep=space}
+
+% 稍微减小图表题注的上下间距
+\captionsetup[figure]{position=below}
+\captionsetup[table]{position=above,skip=5pt}
 
 % 设置参考文献样式
 \let\oldbibliography\bibliography
