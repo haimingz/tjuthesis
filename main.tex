@@ -2,19 +2,8 @@
 
 \usepackage{tjustyle}
 
-% 根据需求导入宏包，自定义命令。以下内容如不需要都可删除。
-
-\RequirePackage{threeparttable} % 用于给表格添加注释
-\RequirePackage{threeparttablex} % 用于给长表格添加注释
-\RequirePackage{longtable} % 用于绘制长表格
-
-% 定义表格列宽的命令
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-
 \graphicspath{{figures/}} % 指定图片保存地址
+\bibliographystyle{gbt7714} % 指定参考文献格式文件
 
 \begin{document}
 
@@ -31,7 +20,7 @@
 
 \include{contents/demo} % 导入正文示例
 
-\bibliographystyle{gbt7714} % 指定参考文献格式文件
+
 \bibliography{references} % 指定参考文献数据文件
 
 \include{contents/appendix} % 添加附录
