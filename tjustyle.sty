@@ -1,139 +1,139 @@
 %% -------------------------------------------------------------------
 %% LaTeX style of PhD/Master thesis for Tianjin University
 %% https://github.com/haimingz/tjuthesis
-%% Version: 2022/12/16
+%% Version: 2023/04/19
 %% -------------------------------------------------------------------
 
 \ProvidesPackage{tjustyle}
 
-\RequirePackage[top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm, asymmetric]{geometry} % 页边距设置（asymmetric 选项使左右边距等宽，否则奇数页偶数页左右边距不一样，用惯了 word 的老师看着别扭）
-\RequirePackage[heading=true, zihao=-4]{ctex} % 支持中文的包，选项为开启中文章节图表标题，设置默认字号为小四
-% \RequirePackage{emptypage} % 去除空白页的页眉页脚所需的包
-\RequirePackage{fancyhdr} % 自定义页眉页脚样式所需的包
-\RequirePackage{titletoc} % 用于设置目录样式的包
-\RequirePackage{caption} % 用于设置图表题注格式
-\RequirePackage[numbers,sort&compress,super,square]{natbib} % 设置参考文献引用格式
-\RequirePackage[hidelinks]{hyperref} % 设置交叉引用超链接
-\RequirePackage[shortlabels]{enumitem} % 用于自定义列表编号样式
-\RequirePackage{tabularx} % 用于绘制表格
-\RequirePackage{multirow} % 用于绘制表格
-\RequirePackage{threeparttable} % 用于给表格添加注释
-\RequirePackage{threeparttablex} % 用于给长表格添加注释
-\RequirePackage{longtable} % 用于绘制长表格
-\RequirePackage{booktabs} % 用于绘制三线表的横线
-\RequirePackage{graphicx} % 用于插入图片
-\RequirePackage{mathtools} % 用于撰写公式
-\RequirePackage{amsmath} % 用于撰写公式
-\RequirePackage{amsfonts} % 用于撰写公式
+% 设置页边距
+\RequirePackage[
+    top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm, % 设置页边距
+    asymmetric, % 设置奇偶页左右边距不互换
+    headsep=7.5mm, headheight=5mm, % 页眉距边界距离 15 = 27.5 - 7.5 - 5
+    footskip=7.9mm, % 页脚距边界距离 17.5 = 25.4 - 7.9
+]{geometry} 
 
-% 设置正文行高为固定值20pt
-\renewcommand\normalsize{\setlength{\baselineskip}{20pt plus5pt minus0pt}} % 通过 plus minus 设置弹性行高，使排版更灵活
-\setlength{\parskip}{0pt plus10pt minus0pt} % 通过 plus minus 设置弹性段间距，使排版更灵活
-
-% 设置默认英文字体
-\setmainfont{Times New Roman}
-
-% 设置各级标题样式
-\ctexset{    
-    contentsname={目 \quad 录}, 
+% 支持中文
+\RequirePackage[heading=true, zihao=-4]{ctex} % heading=true 开启中文章节图表标题，zihao=-4 设置默认字号为小四
+\setCJKfamilyfont{zhsong}[AutoFakeBold={2.17}]{SimSun} % 宋体伪粗体
+\let\oldtextbf\textbf 
+\renewcommand{\textbf}{\CJKfamily{zhsong}\oldtextbf} % 宋体伪粗体
+\ctexset{% 基于ctex包设置各级标题样式
+    contentsname={目 \quad 录}, % 目录的标题 
     secnumdepth=3, % 标题编号深度（3 = subsubsection，即四级标题）
-    chapter={
-        format={\heiti\zihao{-3}\centering},
-        number=\arabic{chapter},
-        beforeskip=30pt, % 段前间距
-        afterskip=30pt, % 段后间距
+    chapter={ % 一级标题样式
+        format={\heiti\zihao{-3}\centering}, % 黑体小三居中
+        number=\arabic{chapter}, % 采用阿拉伯数字编号
+        beforeskip=30pt, % 段前间距 （规定 30~36 pt 之间）
+        afterskip=30pt, % 段后间距 （规定 30~36 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     }, 
-    section={
-        format={\heiti\zihao{4}},
-        beforeskip=20pt, % 段前间距
-        afterskip=20pt, % 段后间距
+    section={ % 二级标题样式
+        format={\heiti\zihao{4}}, % 黑体四号
+        beforeskip=20pt, % 段前间距 （规定 18~24 pt 之间）
+        afterskip=20pt, % 段后间距 （规定 18~24 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     },
-    subsection={
-        format={\heiti\zihao{4}},
-        beforeskip=12pt, % 段前间距
-        afterskip=12pt, % 段后间距
+    subsection={ % 三级标题样式
+        format={\heiti\zihao{4}}, % 黑体四号
+        beforeskip=12pt, % 段前间距 （规定 12~15 pt 之间）
+        afterskip=12pt, % 段后间距 （规定 12~15 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     }, 
-    subsubsection={
-        format={\heiti\zihao{-4}},
-        beforeskip=10pt, % 段前间距
-        afterskip=10pt, % 段后间距
+    subsubsection={ % 四级标题样式
+        format={\heiti\zihao{-4}}, % 黑体小四
+        beforeskip=10pt, % 段前间距 （规定 9~12 pt 之间）
+        afterskip=10pt, % 段后间距 （规定 9~12 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     },
 }
 
-% 设置页眉高度（五号字需要至少12.65pt）
-\setlength\headheight{13pt}
-
-% 开启 fancyhdr 页眉页脚样式
-\pagestyle{fancy}
-
-% 重新定义默认的 plain 样式
-\fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyhead[CO]{\songti\zihao{5} \nouppercase{\leftmark}} % 奇数页页眉
-    \fancyhead[CE]{\songti\zihao{5} 天津大学博士学位论文} % 偶数页页眉
-    \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚
+% 自定义两种页眉页脚样式（plain 和 noheader）
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}% 开启 fancyhdr 页眉页脚样式
+\fancypagestyle{plain}{% 重新定义默认的 plain 样式
+    \fancyhf{} % 清除所有页眉页脚重新设置
+    \fancyhead[CO]{\songti\zihao{5} \nouppercase{\leftmark}} % 奇数页页眉，宋体五号，\leftmark 代指章标题，\nouppercase 禁止英文字母全大写
+    \fancyhead[CE]{\songti\zihao{5} 天津大学博士学位论文} % 偶数页页眉，宋体五号，“博士”可以改为“硕士”
+    \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
     \renewcommand{\headrulewidth}{0.5pt} % 页眉横线粗细
     \renewcommand{\footrulewidth}{0pt} % 页脚横线粗细
 }
-
-% 定义一个无页眉的样式
-\fancypagestyle{noheader}{
-    \fancyhf{} 
-    \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚
+\fancypagestyle{noheader}{% 定义一个无页眉的样式
+    \fancyhf{} % 清除所有页眉页脚重新设置
+    \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
     \renewcommand{\headrulewidth}{0pt} % 页脚横线粗细
     \renewcommand{\footrulewidth}{0pt} % 页脚横线粗细
 }
 
-% 设置 frontmatter（封面与声明之后、正文之前，包括摘要、目录）的页面样式
+% 设置文章各部分的奇偶页、页眉页脚样式、页码格式
 \renewcommand\frontmatter{
     \@mainmatterfalse
-    \clearpage{\cleardoublepage} % 从奇数页开始（这行要在设置页码格式之前，因为后者会重置页码）
-    \pagestyle{noheader} % 只开启页脚
-    \pagenumbering{Roman} % 大写罗马数字页码
+    \clearpage{\cleardoublepage} % 从奇数页开始
+    \pagestyle{noheader} % 使用页眉页脚样式 noheader
+    \pagenumbering{Roman} % 大写罗马数字页码（会重置页码）
 } 
-
-% 设置目录页的页眉页脚样式（需要单独设置，因为每个 chapter 起始页会重置为`plain' 样式）
-\let\oldtableofcontents\tableofcontents
-\renewcommand\tableofcontents{
-    \oldtableofcontents
-    \thispagestyle{noheader}
-}
-
-% 设置 mainmatter（正文）及以后的页面样式
 \renewcommand\mainmatter{
     \@mainmattertrue
-    \clearpage{\cleardoublepage} % 从奇数页开始（这行要在设置页码格式之前，因为后者会重置页码）
-    \pagestyle{plain} % 正常页眉页脚
-    \pagenumbering{arabic} % 阿拉伯数字页码
+    \clearpage{\cleardoublepage} % 从奇数页开始
+    \pagestyle{plain} % 使用页眉页脚样式 plain 
+    \pagenumbering{arabic} % 使用阿拉伯数字页码（会重置页码）
+    \normalsize
 } 
 
 % 设置目录样式
-\setcounter{tocdepth}{2} % 目录深度 （2 = subsection，即三级标题）
-\titlecontents{chapter}[0em]{\zihao{-4}}%
-             {\thecontentslabel~}{} %
-             {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
-\titlecontents{section}[2em]{\zihao{-4}} %
-            {\thecontentslabel~}{} %
-            {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
-\titlecontents{subsection}[4em]{\zihao{-4}} %
-            {\thecontentslabel~}{} %
-            {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
+\addtocontents{toc}{\protect\thispagestyle{noheader}} % 设置目录页的页眉页脚样式为 noheader 
+\setcounter{tocdepth}{2} % 设置 tocdepth 目录深度 （2 = subsection，即三级标题）
+\RequirePackage{titletoc} % 用于设置目录样式的包
+\titlecontents{chapter}
+    [0em] % 缩进为 0em = 0 字符
+    {\zihao{-4}}
+    {\thecontentslabel~}{}
+    {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage} %
+\titlecontents{section}
+    [2em] % 缩进为 2em = 4 字符
+    {\zihao{-4}}
+    {\thecontentslabel~}{}
+    {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
+\titlecontents{subsection}
+    [4em] % 缩进为 4em = 4 字符
+    {\zihao{-4}}
+    {\thecontentslabel~}{}
+    {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
 
-% 设置图表公式编号格式
+% 设置默认英文字体
+\setmainfont{Times New Roman} 
+
+% 设置正文格式
+\let\oldnormalsize\normalsize 
+\renewcommand{\normalsize}{
+    \oldnormalsize
+    % \setlength{\baselineskip}{20pt} % 设置正文行高为 20pt
+    \setlength{\baselineskip}{20pt plus 2pt minus 2pt} % 设置正文行高为 20±2pt
+} 
+
+% 设置脚注字号 (10.5 pt = 五号, 13pt 是行高)
+\renewcommand\footnotesize{\fontsize{10.5pt}{13pt}\selectfont}
+
+% 设置图表公式编号格式（章编号-图表编号）
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 
-% 设置图表编号与图表题注的分隔符
-\captionsetup{labelsep=period, labelsep=space}
+% 设置图表题注格式
+\RequirePackage{caption}
+\captionsetup{labelsep=space} % 设置图表编号与图表题注之间以空格分隔
+\captionsetup[figure]{position=below} % 稍微减小图表题注的上下间距
+\captionsetup[table]{position=above, skip=5pt} % 稍微减小图表题注的上下间距
 
-% 稍微减小图表题注的上下间距
-\captionsetup[figure]{position=below}
-\captionsetup[table]{position=above,skip=5pt}
+% 设置列表
+\RequirePackage[shortlabels]{enumitem} % 用于自定义列表编号样式
+\setlist[enumerate]{nosep} % 行高和间距与正文一致
+\setlist[itemize]{nosep}  % 行高和间距与正文一致
+
+% 设置正文中参考文献的引用格式
+\RequirePackage[numbers,sort&compress,super,square]{natbib} % super = 上标，square = 方括号
 
 % 设置参考文献样式
 \let\oldbibliography\bibliography
@@ -145,14 +145,12 @@
     \setlength{\baselineskip}{20pt} % 参考文献结束，恢复到默认行高
 }
 
-% 设置脚注字号 (10.5 pt = 五号, 12pt 是行高)
-\renewcommand{\footnotesize}{\fontsize{10.5pt}{12pt}\selectfont}
-
-% 定义表格列宽的命令
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-% 设置列表的行高和间距与正文一致
-\setlist[enumerate]{nosep}
-\setlist[itemize]{nosep}
+% 其它必要的宏包
+\RequirePackage{graphicx} % 用于插入图片
+\RequirePackage{booktabs} % 用于绘制三线表的横线
+\RequirePackage{amsmath} % 基础数学包
+\RequirePackage{amsfonts} % 支持公式中使用特殊字体
+\RequirePackage{mathtools} % 基础数学包基础上增加额外命令
+\RequirePackage{tabularx} % 用于绘制表格
+\RequirePackage{multirow} % 支持在表格中横跨多列
+\RequirePackage[hidelinks]{hyperref} % 将交叉引用设置为超链接
