@@ -1,18 +1,32 @@
 %% -------------------------------------------------------------------
-%% LaTeX style of PhD/Master thesis for Tianjin University
+%% LaTeX style for PhD/Master thesis of Tianjin University
 %% https://github.com/haimingz/tjuthesis
-%% Version: 2023/04/19
+%% Version: 2023/06/11
 %% -------------------------------------------------------------------
 
 \ProvidesPackage{tjustyle}
 
+\newif\if@print
+\newif\if@master 
+\newif\if@phd 
+
+\DeclareOption{print}{\@printtrue}
+\DeclareOption{master}{\@mastertrue}
+\DeclareOption{phd}{\@phdtrue}
+\ProcessOptions*
+
 % 设置页边距
-\RequirePackage[
-    top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm, % 设置页边距
-    asymmetric, % 设置奇偶页左右边距不互换
+\RequirePackage{geometry} 
+
+\if@print
+\geometry{top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm,} % 在装订侧预留更多边距（生产打印版）
+\else
+\geometry{top=27.5mm, bottom=25.4mm, left=31.7mm, right=31.7mm,} % 设置奇偶页左右边距相等（生成电子版）
+\fi
+\geometry{
     headsep=7.5mm, headheight=5mm, % 页眉距边界距离 15 = 27.5 - 7.5 - 5
     footskip=7.9mm, % 页脚距边界距离 17.5 = 25.4 - 7.9
-]{geometry} 
+}
 
 % 支持中文
 \RequirePackage[heading=true, zihao=-4]{ctex} % heading=true 开启中文章节图表标题，zihao=-4 设置默认字号为小四
@@ -55,11 +69,16 @@
 \fancypagestyle{plain}{% 重新定义默认的 plain 样式
     \fancyhf{} % 清除所有页眉页脚重新设置
     \fancyhead[CO]{\songti\zihao{5} \nouppercase{\leftmark}} % 奇数页页眉，宋体五号，\leftmark 代指章标题，\nouppercase 禁止英文字母全大写
-    \fancyhead[CE]{\songti\zihao{5} 天津大学博士学位论文} % 偶数页页眉，宋体五号，“博士”可以改为“硕士”
+    \if@master
+        \fancyhead[CE]{\songti\zihao{5} 天津大学硕士学位论文} % 偶数页页眉，宋体五号
+    \else 
+        \fancyhead[CE]{\songti\zihao{5} 天津大学博士学位论文} % 偶数页页眉，宋体五号
+    \fi
     \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
     \renewcommand{\headrulewidth}{0.5pt} % 页眉横线粗细
     \renewcommand{\footrulewidth}{0pt} % 页脚横线粗细
 }
+
 \fancypagestyle{noheader}{% 定义一个无页眉的样式
     \fancyhf{} % 清除所有页眉页脚重新设置
     \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
