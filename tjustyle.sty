@@ -1,7 +1,7 @@
 %% -------------------------------------------------------------------
 %% LaTeX style for PhD/Master thesis of Tianjin University
 %% https://github.com/haimingz/tjuthesis
-%% Version: 2023/06/11
+%% Version: 2023/06/14
 %% -------------------------------------------------------------------
 
 \ProvidesPackage{tjustyle}
@@ -19,7 +19,7 @@
 \RequirePackage{geometry} 
 
 \if@print
-\geometry{top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm,} % 在装订侧预留更多边距（生产打印版）
+\geometry{top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm,} % 在装订侧预留更多边距（生成打印版）
 \else
 \geometry{top=27.5mm, bottom=25.4mm, left=31.7mm, right=31.7mm,} % 设置奇偶页左右边距相等（生成电子版）
 \fi
@@ -30,10 +30,20 @@
 
 % 支持中文
 \RequirePackage[heading=true, zihao=-4]{ctex} % heading=true 开启中文章节图表标题，zihao=-4 设置默认字号为小四
-\setCJKfamilyfont{zhsong}[AutoFakeBold={2.17}]{SimSun} % 宋体伪粗体
-\let\oldtextbf\textbf 
-\renewcommand{\textbf}{\CJKfamily{zhsong}\oldtextbf} % 宋体伪粗体
-\ctexset{% 基于ctex包设置各级标题样式
+
+% 设置默认英文字体
+\setmainfont{Times New Roman} 
+
+% 宋体伪粗体
+\setCJKfamilyfont{zhsong}[AutoFakeBold={2.17}]{SimSun} 
+\renewcommand*{\songti}{\CJKfamily{zhsong}}
+
+% 国标楷体
+\setCJKfamilyfont{kaigb}[AutoFakeBold = {3.17}]{gb2312kai.ttf}
+\newcommand{\kaigb}{\CJKfamily{kaigb}}  
+
+% 基于ctex包设置各级标题样式
+\ctexset{
     contentsname={目 \quad 录}, % 目录的标题 
     secnumdepth=3, % 标题编号深度（3 = subsubsection，即四级标题）
     chapter={ % 一级标题样式
@@ -63,10 +73,12 @@
     },
 }
 
-% 自定义两种页眉页脚样式（plain 和 noheader）
+% 自定义页眉页脚
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}% 开启 fancyhdr 页眉页脚样式
-\fancypagestyle{plain}{% 重新定义默认的 plain 样式
+
+% 重新定义默认的 plain 样式
+\fancypagestyle{plain}{
     \fancyhf{} % 清除所有页眉页脚重新设置
     \fancyhead[CO]{\songti\zihao{5} \nouppercase{\leftmark}} % 奇数页页眉，宋体五号，\leftmark 代指章标题，\nouppercase 禁止英文字母全大写
     \if@master
@@ -79,7 +91,8 @@
     \renewcommand{\footrulewidth}{0pt} % 页脚横线粗细
 }
 
-\fancypagestyle{noheader}{% 定义一个无页眉的样式
+% 定义一个无页眉的样式
+\fancypagestyle{noheader}{
     \fancyhf{} % 清除所有页眉页脚重新设置
     \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
     \renewcommand{\headrulewidth}{0pt} % 页脚横线粗细
@@ -92,14 +105,14 @@
     \clearpage{\cleardoublepage} % 从奇数页开始
     \pagestyle{noheader} % 使用页眉页脚样式 noheader
     \pagenumbering{Roman} % 大写罗马数字页码（会重置页码）
-    \normalsize
+    % \setlength{\baselineskip}{20pt} % 设置正文行高为 20pt
+    \setlength{\baselineskip}{20pt plus 2pt minus 2pt} % 设置弹性行高为 20±2pt （optional）
 } 
 \renewcommand\mainmatter{
     \@mainmattertrue
     \clearpage{\cleardoublepage} % 从奇数页开始
     \pagestyle{plain} % 使用页眉页脚样式 plain 
     \pagenumbering{arabic} % 使用阿拉伯数字页码（会重置页码）
-    \normalsize
 } 
 
 % 设置目录样式
@@ -122,17 +135,6 @@
     {\thecontentslabel~}{}
     {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
 
-% 设置默认英文字体
-\setmainfont{Times New Roman} 
-
-% 设置正文格式
-\let\oldnormalsize\normalsize 
-\renewcommand{\normalsize}{
-    \oldnormalsize
-    % \setlength{\baselineskip}{20pt} % 设置正文行高为 20pt
-    \setlength{\baselineskip}{20pt plus 2pt minus 2pt} % 设置正文行高为 20±2pt （optional）
-} 
-
 % 设置脚注字号 (10.5 pt = 五号, 13pt 是行高)
 \renewcommand\footnotesize{\fontsize{10.5pt}{13pt}\selectfont}
 
@@ -147,7 +149,7 @@
 \captionsetup[figure]{position=below} % 稍微减小图表题注的上下间距（optional）
 \captionsetup[table]{position=above, skip=5pt} % 稍微减小图表题注的上下间距（optional）
 
-% 设置列表
+% 设置列表格式
 \RequirePackage[shortlabels]{enumitem} % 用于自定义列表编号样式
 \setlist[enumerate]{nosep} % 行高和间距与正文一致
 \setlist[itemize]{nosep}  % 行高和间距与正文一致
@@ -174,3 +176,8 @@
 \RequirePackage{tabularx} % 用于绘制表格
 \RequirePackage{multirow} % 支持在表格中横跨多列
 \RequirePackage[hidelinks]{hyperref} % 将交叉引用设置为超链接
+
+% 定义表格列宽的命令
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}

@@ -1,5 +1,10 @@
+% 扉页
+
 \pagestyle{empty} % 去除页眉页脚
+
 \begin{center} % 本页内容居中
+
+\vspace*{0.8cm} % 根据需要调整距离
 
 \zihao{2}\textbf{中文题目（宋体二号加粗）}
 
@@ -25,26 +30,28 @@
 
 \vspace{0.5cm}  % 根据需要调整距离
 
-% 答辩信息表，可根据实际答辩委员数增加行数，注意修改 \multirow 的第一个参数
+% 答辩委员会名单表，可根据实际答辩委员数增加行数，注意同时修改 \multirow 的第一个参数
 \begin{table}[h] 
     \centering 
     \renewcommand*{\arraystretch}{1.35} % 设置行高
-    \begin{tabularx}{\textwidth}{|*{4}{>{\centering\arraybackslash}X|}}
+    \begin{tabular}{|C{0.17\textwidth}|C{0.12\textwidth}|C{0.12\textwidth}|C{0.45\textwidth}|}
     \hline
-    答辩日期              & \multicolumn{3}{c|}{20~~年~~月~~日} \\ \hline
-    答辩委员会            &  姓名 &  职称 &  工作单位           \\ \hline
-    主席                  &       &       &                     \\ \hline
-    \multirow{6}{*}{委员} &       &       &                     \\ \cline{2-4} 
-                          &       &       &                     \\ \cline{2-4}
-                          &       &       &                     \\ \cline{2-4}
-                          &       &       &                     \\ \cline{2-4}
-                          &       &       &                     \\ \cline{2-4}
-                          &       &       &                     \\ \hline
-    \end{tabularx}
+    \textbf{答辩日期}              & \multicolumn{3}{c|}{20XX年XX月XX日} \\ \hline
+    \textbf{答辩委员会}            &  \textbf{姓名} &  \textbf{职称} &  \textbf{工作单位}  \\ \hline
+    \textbf{主席}                  &                &                &                     \\ \hline
+    \multirow{6}{*}{\textbf{委员}} &                &                &                     \\ \cline{2-4} 
+                                   &                &                &                     \\ \cline{2-4}
+                                   &                &                &                     \\ \cline{2-4}
+                                   &                &                &                     \\ \cline{2-4}
+                                   &                &                &                     \\ \cline{2-4}
+                                   &                &                &                     \\ \hline
+    \end{tabular}
 \end{table}
 
 \vspace{0.5cm}  % 根据需要调整距离
 
 \zihao{4}{天津大学XXXX学院\\二〇XX年XX月}
+
+\vspace{0.5cm}  % 根据需要调整距离
 
 \end{center} % 停止居中

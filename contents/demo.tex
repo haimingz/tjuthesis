@@ -3,14 +3,12 @@
 
 \section{节标题（二级标题）}
 
-这里测试大段文字：
+测试大段文字。\zhlipsum[5-8] % dummy text
 
-学位论文是学位授予单位研究生培养质量的重要标志，是研究生本人在学期间从事学术研究的成果体现，是对研究生综合能力的考核，也是研究生申请学位的主要依据。为保证我校研究生学位论文的质量，实现我校学位论文格式的规范化，参照GB/T 7713.1—2006《学位论文编写规则》，GB 7713-87《科学技术报告、学位论文和学术论文的编写格式》和GB/T 7714—2005《文后参考文献著录规则》等标准，特制定《天津大学关于博士、硕士学位论文统一格式的规定》。
-
-\begin{enumerate}[label={（\arabic*）}]
+\begin{enumerate}[（1）]
     \item 测试列表条目
     \item 测试列表条目 
-    \begin{enumerate}[label={（\roman*）}]
+    \begin{enumerate}[（i）]
         \item 嵌套列表条目
         \item 嵌套列表条目
     \end{enumerate}
@@ -19,13 +17,20 @@
 这里测试插入图片：
 \begin{figure}[!h]
     \centering\small
-    \includegraphics[width=3cm]{tju_logo.png}
+    \includegraphics[width=5.5cm]{tju_logo.png}
     \caption{天津大学校徽}
     \label{fig:logo}
 \end{figure}
-图~\ref{fig:logo} 所示为一张图片~\cite{mittelbach2004}。
+图~\ref{fig:logo} 所示为一张图片。
 
 \subsection{小节标题（三级标题）}
+
+测试公式，如公式~\eqref{eq1}~所示：
+\begin{equation}\label{eq1}
+    f(x) = \int_{-\infty}^\infty  \hat f(x)\xi\,e^{2 \pi i \xi x}  \,\mathrm{d}\xi 
+\end{equation}
+
+测试引用参考文献：\citet{mittelbach2004} 证明 \citet{kottwitz2015} 的结论是正确的\citep{张琪昌2005}。
 
 \chapter{另一个章标题（一级标题）}
 

@@ -1,8 +1,9 @@
 \documentclass[openright，twoside, a4paper]{book}
 
-\usepackage[master]{tjustyle}
-\usepackage{zhlipsum}
-\usepackage{lipsum}
+\usepackage[master]{tjustyle} % 如果是博士论文，将 master 改为 phd
+
+\usepackage{zhlipsum} % 只用于示例文件生成 dummy text，可删除
+\usepackage{lipsum} % 只用于示例文件生成 dummy text，可删除
 
 \graphicspath{{figures/}} % 指定图片保存地址
 \bibliographystyle{gbt7714} % 指定参考文献格式文件
@@ -10,6 +11,7 @@
 \begin{document}
 
 \include{contents/titlepage} % 扉页
+
 \include{contents/declaration} % 独创性声明
 
 \frontmatter % 开始有页码（大写罗马）
@@ -22,7 +24,6 @@
 
 \include{contents/demo} % 导入正文示例
 
-
 \bibliography{references.bib} % 指定参考文献数据文件
 
 \include{contents/appendix} % 添加附录
@@ -30,6 +31,7 @@
 \backmatter % 以后的章节没有编号
 
 \include{contents/publications} % 发表论文和参加科研情况说明
+
 \include{contents/acknowledgements} % 致谢
 
 \end{document}
