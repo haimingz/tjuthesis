@@ -49,26 +49,26 @@
     chapter={ % 一级标题样式
         format={\heiti\zihao{-3}\centering}, % 黑体小三居中
         number=\arabic{chapter}, % 采用阿拉伯数字编号
-        beforeskip=30pt, % 段前间距 （规定 30~36 pt 之间）
-        afterskip=30pt, % 段后间距 （规定 30~36 pt 之间）
+        beforeskip=30bp, % 段前间距 （规定 30~36 pt 之间）
+        afterskip=30bp, % 段后间距 （规定 30~36 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     }, 
     section={ % 二级标题样式
         format={\heiti\zihao{4}}, % 黑体四号
-        beforeskip=20pt, % 段前间距 （规定 18~24 pt 之间）
-        afterskip=20pt, % 段后间距 （规定 18~24 pt 之间）
+        beforeskip=20bp, % 段前间距 （规定 18~24 pt 之间）
+        afterskip=20bp, % 段后间距 （规定 18~24 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     },
     subsection={ % 三级标题样式
         format={\heiti\zihao{4}}, % 黑体四号
-        beforeskip=12pt, % 段前间距 （规定 12~15 pt 之间）
-        afterskip=12pt, % 段后间距 （规定 12~15 pt 之间）
+        beforeskip=12bp, % 段前间距 （规定 12~15 pt 之间）
+        afterskip=12bp, % 段后间距 （规定 12~15 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     }, 
     subsubsection={ % 四级标题样式
         format={\heiti\zihao{-4}}, % 黑体小四
-        beforeskip=10pt, % 段前间距 （规定 9~12 pt 之间）
-        afterskip=10pt, % 段后间距 （规定 9~12 pt 之间）
+        beforeskip=10bp, % 段前间距 （规定 9~12 pt 之间）
+        afterskip=10bp, % 段后间距 （规定 9~12 pt 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     },
 }
@@ -87,16 +87,16 @@
         \fancyhead[CE]{\songti\zihao{5} 天津大学博士学位论文} % 偶数页页眉，宋体五号
     \fi
     \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
-    \renewcommand{\headrulewidth}{0.5pt} % 页眉横线粗细
-    \renewcommand{\footrulewidth}{0pt} % 页脚横线粗细
+    \renewcommand{\headrulewidth}{0.5bp} % 页眉横线粗细
+    \renewcommand{\footrulewidth}{0bp} % 页脚横线粗细
 }
 
 % 定义一个无页眉的样式
 \fancypagestyle{noheader}{
     \fancyhf{} % 清除所有页眉页脚重新设置
     \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
-    \renewcommand{\headrulewidth}{0pt} % 页脚横线粗细
-    \renewcommand{\footrulewidth}{0pt} % 页脚横线粗细
+    \renewcommand{\headrulewidth}{0bp} % 页脚横线粗细
+    \renewcommand{\footrulewidth}{0bp} % 页脚横线粗细
 }
 
 % 设置文章各部分的奇偶页、页眉页脚样式、页码格式
@@ -105,8 +105,8 @@
     \clearpage{\cleardoublepage} % 从奇数页开始
     \pagestyle{noheader} % 使用页眉页脚样式 noheader
     \pagenumbering{Roman} % 大写罗马数字页码（会重置页码）
-    % \setlength{\baselineskip}{20pt} % 设置正文行高为 20pt
-    \setlength{\baselineskip}{20pt plus 2pt minus 2pt} % 设置弹性行高为 20±2pt （optional）
+    % \setlength{\baselineskip}{20bp} % 设置正文行高为 20bp
+    \setlength{\baselineskip}{20bp plus 2bp minus 2bp} % 设置弹性行高为 20±2bp （optional）
 } 
 \renewcommand\mainmatter{
     \@mainmattertrue
@@ -123,20 +123,20 @@
     [0em] % 缩进为 0em = 0 字符
     {\zihao{-4}}
     {\thecontentslabel~}{}
-    {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage} %
+    {\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage} %
 \titlecontents{section}
     [2em] % 缩进为 2em = 4 字符
     {\zihao{-4}}
     {\thecontentslabel~}{}
-    {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
+    {\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage}
 \titlecontents{subsection}
     [4em] % 缩进为 4em = 4 字符
     {\zihao{-4}}
     {\thecontentslabel~}{}
-    {\hspace{.5em}\titlerule*[5pt]{.}\zihao{-4}\contentspage}
+    {\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage}
 
-% 设置脚注字号 (10.5 pt = 五号, 13pt 是行高)
-\renewcommand\footnotesize{\fontsize{10.5pt}{13pt}\selectfont}
+% 设置脚注字号 (10.5 bp = 五号, 13bp 是行高)
+\renewcommand\footnotesize{\fontsize{10.5bp}{13bp}\selectfont}
 
 % 设置图表公式编号格式（章编号-图表编号）
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
@@ -147,7 +147,7 @@
 \RequirePackage{caption}
 \captionsetup{labelsep=space} % 设置图表编号与图表题注之间以空格分隔
 \captionsetup[figure]{position=below} % 稍微减小图表题注的上下间距（optional）
-\captionsetup[table]{position=above, skip=5pt} % 稍微减小图表题注的上下间距（optional）
+\captionsetup[table]{position=above, skip=5bp} % 稍微减小图表题注的上下间距（optional）
 
 % 设置列表格式
 \RequirePackage[shortlabels]{enumitem} % 用于自定义列表编号样式
@@ -161,10 +161,10 @@
 \let\oldbibliography\bibliography
 \renewcommand\bibliography[1]{
     \addcontentsline{toc}{chapter}{参考文献} % 把参考文献添加到目录
-    \setlength{\baselineskip}{17pt} % 行高 17pt
-    \setlength{\bibsep}{3pt} % 条目之间 3pt 间距
+    \setlength{\baselineskip}{17bp} % 行高 17bp
+    \setlength{\bibsep}{3bp} % 条目之间 3bp 间距
     \oldbibliography{#1}
-    \setlength{\baselineskip}{20pt} % 参考文献结束，恢复到默认行高
+    \setlength{\baselineskip}{20bp} % 参考文献结束，恢复到默认行高
 }
 
 % 其它必要的宏包
@@ -178,6 +178,6 @@
 \RequirePackage[hidelinks]{hyperref} % 将交叉引用设置为超链接
 
 % 定义表格列宽的命令
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0bp}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0bp}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0bp}}m{#1}}
