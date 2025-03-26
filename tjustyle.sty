@@ -160,6 +160,8 @@
 % 设置参考文献样式
 \let\oldbibliography\bibliography
 \renewcommand\bibliography[1]{
+    \cleardoublepage % 修正目录中参考文献页码
+    \phantomsection % 保证目录能精确跳转到参考文献
     \addcontentsline{toc}{chapter}{参考文献} % 把参考文献添加到目录
     \setlength{\baselineskip}{17bp} % 行高 17bp
     \setlength{\bibsep}{3bp} % 条目之间 3bp 间距
