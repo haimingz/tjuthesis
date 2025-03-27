@@ -28,7 +28,7 @@ tjuthesis
 ├─ main.tex                  <--- 主文件（编译的入口）
 ├─ README.md                 <--- 说明文档（本文件）
 ├─ references.bib            <--- 参考文献数据库
-└─ tjustyle.sty              <--- 天津大学论文格式文件
+└─ tjuthesis.cls             <--- 天津大学论文类文件
 ```
 
 其中，`main.tex` 是主文件，根目录下其他文件为必要的样式、字体、参考文献等文件。由于 LaTeX 编译长文档效率较低，因此这个示例中将论文各部分拆分为独立的子文档，保存在 `contents` 文件夹下，在撰写过程中主文件只导入部分子文件，以提高编译效率。相应地，图片保存在 `figures` 文件夹下，如果图片较多，可以按需在 `figures` 文件夹下再设文件夹。当然，此示例只提供一种可行的文件管理方案，使用者不必拘泥。
@@ -46,13 +46,13 @@ tjuthesis
 根据《规定》，硕博论文的格式基本相同，只有偶数页的页眉略有不同，分别为“天津大学博士学位论文”和 “天津大学硕士学位论文”。本模板提供对应选项，使用者应指定 `master` 或 `phd` 选项，即：
 
 ```latex
-\usepackage[phd]{tjustyle}
+\documentclass[phd]{tjustyle}
 ```
 
 或
 
 ```latex
-\usepackage[master]{tjustyle}
+\documentclass[master]{tjustyle}
 ```
 
 ### 页边距
@@ -65,5 +65,5 @@ tjuthesis
 因此，本模板提供了 `print` 选项，在开启时，生成用于打印的pdf，采用打印版页边距设置，即：内侧 35.7mm、外侧 27.7mm。不开启 `print` 选项时，生成电子版pdf，左右页边距都为 31.7mm。示例：
 
 ```latex
-\usepackage[phd, print]{tjustyle}
+\documentclass[phd, print]{tjustyle}
 ```
