@@ -6,6 +6,13 @@
 
 参考文献样式文件来自于 [gbt7714-bibtex-style](https://github.com/zepinglee/gbt7714-bibtex-style) 的 `gbt7714-numerical.bst`。当然，既然本模板兼容 `natbib`，使用者也可以按需选择其他参考文献样式。
 
+## 变动日志
+
+2025-03（感谢 @[horizon86](https://github.com/horizon86)）:
+- 将样式文件（sty）更改为类文件（cls）。[#4](https://github.com/haimingz/tjuthesis/pull/4)
+- 修正了目录中参考文献的页码和跳转问题。 [#3](https://github.com/haimingz/tjuthesis/pull/3)
+- 将“磅”值对应的单位从pt修正为bp。 [#2](https://github.com/haimingz/tjuthesis/pull/2)
+
 ## 文件说明
 
 文件结构如下：
@@ -38,8 +45,7 @@ tjuthesis
 ### 扉页
 
 
-本着奥卡姆剃刀原则，不对论文扉页做过度封装。使用者可根据实际情况，直接对照《规定》
-附录B 修改 `titlepage.tex` 中的“基本信息表”和“答辩委员会名单表”。
+本着奥卡姆剃刀原则，不对论文扉页做过度封装。使用者可根据实际情况，直接对照《规定》附录B 修改 `titlepage.tex` 中的“基本信息表”和“答辩委员会名单表”。
 
 ### 页眉
 
@@ -48,7 +54,6 @@ tjuthesis
 ```latex
 \documentclass[phd]{tjustyle}
 ```
-
 或
 
 ```latex
