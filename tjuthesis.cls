@@ -1,10 +1,14 @@
 %% -------------------------------------------------------------------
-%% LaTeX style for PhD/Master thesis of Tianjin University
-%% https://github.com/haimingz/tjuthesis
-%% Version: 2023/06/14
+%% tjuthesis: LaTeX Template for Tianjin University PhD/Master Thesis
+%% Homepage: https://github.com/haimingz/tjuthesis
+%% Version: 2025/03/27
 %% -------------------------------------------------------------------
 
-\ProvidesPackage{tjustyle}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{tjuthesis}
+
+% 页面设置
+\LoadClass[openright，twoside, a4paper]{book}% 纸张大小为A4
 
 \newif\if@print
 \newif\if@master 
