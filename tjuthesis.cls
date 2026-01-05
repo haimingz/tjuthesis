@@ -11,8 +11,8 @@
 \LoadClass[openright，twoside, a4paper]{book}% 纸张大小为A4
 
 \newif\if@print
-\newif\if@master 
-\newif\if@phd 
+\newif\if@master
+\newif\if@phd
 
 \DeclareOption{print}{\@printtrue}
 \DeclareOption{master}{\@mastertrue}
@@ -20,12 +20,12 @@
 \ProcessOptions*
 
 % 设置页边距
-\RequirePackage{geometry} 
+\RequirePackage{geometry}
 
 \if@print
-\geometry{top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm,} % 在装订侧预留更多边距（生成打印版）
+    \geometry{top=27.5mm, bottom=25.4mm, left=35.7mm, right=27.7mm,} % 在装订侧预留更多边距（生成打印版）
 \else
-\geometry{top=27.5mm, bottom=25.4mm, left=31.7mm, right=31.7mm,} % 设置奇偶页左右边距相等（生成电子版）
+    \geometry{top=27.5mm, bottom=25.4mm, left=31.7mm, right=31.7mm,} % 设置奇偶页左右边距相等（生成电子版）
 \fi
 \geometry{
     headsep=7.5mm, headheight=5mm, % 页眉距边界距离 15 = 27.5 - 7.5 - 5
@@ -36,45 +36,45 @@
 \RequirePackage[heading=true, zihao=-4]{ctex} % heading=true 开启中文章节图表标题，zihao=-4 设置默认字号为小四
 
 % 设置默认英文字体
-\setmainfont{Times New Roman} 
+\setmainfont{Times New Roman}
 
 % 宋体伪粗体
-\setCJKfamilyfont{zhsong}[AutoFakeBold={2.17}]{SimSun} 
+\setCJKfamilyfont{zhsong}[AutoFakeBold={3.17}]{SimSun}
 \renewcommand*{\songti}{\CJKfamily{zhsong}}
 
 % 国标楷体
 \setCJKfamilyfont{kaigb}[AutoFakeBold = {3.17}]{gb2312kai.ttf}
-\newcommand{\kaigb}{\CJKfamily{kaigb}}  
+\newcommand{\kaigb}{\CJKfamily{kaigb}}
 
 % 基于ctex包设置各级标题样式
 \ctexset{
     contentsname={目 \quad 录}, % 目录的标题 
     secnumdepth=3, % 标题编号深度（3 = subsubsection，即四级标题）
     chapter={ % 一级标题样式
-        format={\heiti\zihao{-3}\centering}, % 黑体小三居中
-        number=\arabic{chapter}, % 采用阿拉伯数字编号
-        beforeskip=30bp, % 段前间距 （规定 30~36 bp 之间）
-        afterskip=30bp, % 段后间距 （规定 30~36 bp 之间）
-        aftername=~, % 标题编号与标题内容之间键入1个空格。
-    }, 
+      format={\heiti\zihao{-3}\centering}, % 黑体小三居中
+      number=\arabic{chapter}, % 采用阿拉伯数字编号
+      beforeskip=30bp, % 段前间距 （规定 30~36 bp 之间）
+      afterskip=30bp, % 段后间距 （规定 30~36 bp 之间）
+      aftername=~, % 标题编号与标题内容之间键入1个空格。
+     },
     section={ % 二级标题样式
-        format={\heiti\zihao{4}}, % 黑体四号
-        beforeskip=20bp, % 段前间距 （规定 18~24 bp 之间）
-        afterskip=20bp, % 段后间距 （规定 18~24 bp 之间）
-        aftername=~, % 标题编号与标题内容之间键入1个空格。
-    },
+      format={\heiti\zihao{4}}, % 黑体四号
+      beforeskip=20bp, % 段前间距 （规定 18~24 bp 之间）
+      afterskip=20bp, % 段后间距 （规定 18~24 bp 之间）
+      aftername=~, % 标题编号与标题内容之间键入1个空格。
+     },
     subsection={ % 三级标题样式
-        format={\heiti\zihao{4}}, % 黑体四号
-        beforeskip=12bp, % 段前间距 （规定 12~15 bp 之间）
-        afterskip=12bp, % 段后间距 （规定 12~15 bp 之间）
-        aftername=~, % 标题编号与标题内容之间键入1个空格。
-    }, 
+            format={\heiti\zihao{4}}, % 黑体四号
+            beforeskip=12bp, % 段前间距 （规定 12~15 bp 之间）
+            afterskip=12bp, % 段后间距 （规定 12~15 bp 之间）
+            aftername=~, % 标题编号与标题内容之间键入1个空格。
+        },
     subsubsection={ % 四级标题样式
-        format={\heiti\zihao{-4}}, % 黑体小四
-        beforeskip=10bp, % 段前间距 （规定 9~12 bp 之间）
-        afterskip=10bp, % 段后间距 （规定 9~12 bp 之间）
-        aftername=~, % 标题编号与标题内容之间键入1个空格。
-    },
+            format={\heiti\zihao{-4}}, % 黑体小四
+            beforeskip=10bp, % 段前间距 （规定 9~12 bp 之间）
+            afterskip=10bp, % 段后间距 （规定 9~12 bp 之间）
+            aftername=~, % 标题编号与标题内容之间键入1个空格。
+        },
 }
 
 % 自定义页眉页脚
@@ -87,7 +87,7 @@
     \fancyhead[CO]{\songti\zihao{5} \nouppercase{\leftmark}} % 奇数页页眉，宋体五号，\leftmark 代指章标题，\nouppercase 禁止英文字母全大写
     \if@master
         \fancyhead[CE]{\songti\zihao{5} 天津大学硕士学位论文} % 偶数页页眉，宋体五号
-    \else 
+    \else
         \fancyhead[CE]{\songti\zihao{5} 天津大学博士学位论文} % 偶数页页眉，宋体五号
     \fi
     \fancyfoot[C]{\songti\zihao{-5} \thepage} % 页脚，宋体小五号，\thepage 代指页码
@@ -111,33 +111,33 @@
     \pagenumbering{Roman} % 大写罗马数字页码（会重置页码）
     % \setlength{\baselineskip}{20bp} % 设置正文行高为 20bp
     \setlength{\baselineskip}{20bp plus 2bp minus 2bp} % 设置弹性行高为 20±2bp （optional）
-} 
+}
 \renewcommand\mainmatter{
     \@mainmattertrue
     \clearpage{\cleardoublepage} % 从奇数页开始
     \pagestyle{plain} % 使用页眉页脚样式 plain 
     \pagenumbering{arabic} % 使用阿拉伯数字页码（会重置页码）
-} 
+}
 
 % 设置目录样式
 \addtocontents{toc}{\protect\thispagestyle{noheader}} % 设置目录页的页眉页脚样式为 noheader 
 \setcounter{tocdepth}{2} % 设置 tocdepth 目录深度 （2 = subsection，即三级标题）
 \RequirePackage{titletoc} % 用于设置目录样式的包
 \titlecontents{chapter}
-    [0em] % 缩进为 0em = 0 字符
-    {\zihao{-4}}
-    {\thecontentslabel~}{}
-    {\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage} %
+[0em] % 缩进为 0em = 0 字符
+{\heiti\zihao{-4}}
+{\thecontentslabel~}{}
+{\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage} %
 \titlecontents{section}
-    [2em] % 缩进为 2em = 4 字符
-    {\zihao{-4}}
-    {\thecontentslabel~}{}
-    {\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage}
+[2em] % 缩进为 2em = 4 字符
+{\zihao{-4}}
+{\thecontentslabel~}{}
+{\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage}
 \titlecontents{subsection}
-    [4em] % 缩进为 4em = 4 字符
-    {\zihao{-4}}
-    {\thecontentslabel~}{}
-    {\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage}
+[4em] % 缩进为 4em = 4 字符
+{\zihao{-4}}
+{\thecontentslabel~}{}
+{\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage}
 
 % 设置脚注字号 (10.5 bp = 五号, 13bp 是行高)
 \renewcommand\footnotesize{\fontsize{10.5bp}{13bp}\selectfont}
