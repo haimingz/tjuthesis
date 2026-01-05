@@ -39,7 +39,10 @@
 \setmainfont{Times New Roman} 
 
 % 宋体伪粗体
-\setCJKfamilyfont{zhsong}[AutoFakeBold={2.17}]{SimSun} 
+% \setCJKfamilyfont{zhsong}[AutoFakeBold={2.17}]{SimSun} 
+
+% 宋体
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {3.17}]{simsun.ttc}
 \renewcommand*{\songti}{\CJKfamily{zhsong}}
 
 % 国标楷体
@@ -125,7 +128,7 @@
 \RequirePackage{titletoc} % 用于设置目录样式的包
 \titlecontents{chapter}
     [0em] % 缩进为 0em = 0 字符
-    {\zihao{-4}}
+    {\heiti\zihao{-4}}
     {\thecontentslabel~}{}
     {\hspace{.5em}\titlerule*[5bp]{.}\zihao{-4}\contentspage} %
 \titlecontents{section}
