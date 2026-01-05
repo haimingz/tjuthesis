@@ -152,6 +152,7 @@
 \captionsetup{labelsep=space} % 设置图表编号与图表题注之间以空格分隔
 \captionsetup[figure]{position=below} % 稍微减小图表题注的上下间距（optional）
 \captionsetup[table]{position=above, skip=5bp} % 稍微减小图表题注的上下间距（optional）
+\captionsetup{font=small} % 设置图表题注字号为五号
 
 % 设置列表格式
 \RequirePackage[shortlabels]{enumitem} % 用于自定义列表编号样式
@@ -182,8 +183,24 @@
 \RequirePackage{tabularx} % 用于绘制表格
 \RequirePackage{multirow} % 支持在表格中横跨多列
 \RequirePackage[hidelinks]{hyperref} % 将交叉引用设置为超链接
+\RequirePackage{cleveref} % 增强交叉引用功能
+\RequirePackage{float} % 提供 H 选项强制浮动体位置
+\RequirePackage{algorithm}    % 提供算法浮动体
+\RequirePackage{algorithmic}  % 提供算法伪代码语法（或用 algorithm2e）
 
 % 定义表格列宽的命令
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0bp}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0bp}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0bp}}m{#1}}
+
+% 设置 cref 的中文标签名称
+\crefname{figure}{图}{图}
+\Crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\Crefname{table}{表}{表}
+\crefname{equation}{公式}{公式}
+\Crefname{equation}{公式}{公式}
+\crefname{chapter}{第}{章}
+\Crefname{chapter}{第}{章}
+\crefname{section}{节}{节}
+\Crefname{section}{节}{节}

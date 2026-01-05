@@ -21,16 +21,49 @@
     \caption{天津大学校徽}
     \label{fig:logo}
 \end{figure}
-图~\ref{fig:logo} 所示为一张图片。
+\cref{fig:logo}所示为一张图片。
+
+这里测试插入表格：
+\begin{table}
+    \centering\small
+    \caption{测试表格\citep{白皮书2018}}
+    \begin{tabular}{ccc}
+        \toprule
+        序号 & 姓名 & 年龄 \\
+        \midrule
+        1  & 张三 & 20 \\
+        2  & 李四 & 22 \\
+        3  & 王五 & 21 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:test}
+\end{table}
+\cref{tab:test}所示为一张表格。
 
 \subsection{小节标题（三级标题）}
 
-测试公式，如公式~\eqref{eq1}~所示：
+测试公式，如\cref{eq1}所示：
 \begin{equation}\label{eq1}
     f(x) = \int_{-\infty}^\infty  \hat f(x)\xi\,e^{2 \pi i \xi x}  \,\mathrm{d}\xi 
 \end{equation}
 
 测试引用参考文献：\citet{mittelbach2004} 证明 \citet{kottwitz2015} 的结论是正确的\citep{张琪昌2005}。
+测试引用多个参考文献：\citet{C-COT,ctex2022,SiamFC,SiamMask,SiamRPN,卢莉萍} 的结论是正确的\citep{白皮书2018,张琪昌2005}。
+
+
+测试算法环境，如下所示：
+\begin{algorithm}
+    \caption{这是一个算法环境的示例}
+    \begin{algorithmic}[1]
+        \REQUIRE 输入条件
+        \ENSURE 输出结果
+        \STATE 这是算法的第一步
+        \FOR{某个条件}
+        \STATE 这是循环体
+        \ENDFOR
+        \RETURN 某个结果
+    \end{algorithmic}
+\end{algorithm}
 
 \chapter{另一个章标题（一级标题）}
 
