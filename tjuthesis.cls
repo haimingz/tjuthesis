@@ -8,7 +8,7 @@
 \ProvidesClass{tjuthesis}
 
 % 页面设置
-\LoadClass[openright，twoside, a4paper]{book}% 纸张大小为A4
+\LoadClass[openright, twoside, a4paper]{book}% 纸张大小为A4
 
 \newif\if@print
 \newif\if@master 

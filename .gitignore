@@ -276,3 +276,9 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Output directory
+out/*
+
+# Exception for main.pdf in output directory
+!out/main.pdf
