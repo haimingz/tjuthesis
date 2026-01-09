@@ -186,7 +186,8 @@
 \RequirePackage{cleveref} % 增强交叉引用功能
 \RequirePackage{float} % 提供 H 选项强制浮动体位置
 \RequirePackage{algorithm}    % 提供算法浮动体
-\RequirePackage{algorithmic}  % 提供算法伪代码语法（或用 algorithm2e）
+\RequirePackage{algorithmicx}  % 提供算法伪代码语法
+\RequirePackage{algpseudocode} % 提供算法伪代码命令
 
 % 定义表格列宽的命令
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0bp}}m{#1}}
