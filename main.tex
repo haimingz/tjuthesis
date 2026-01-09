@@ -5,7 +5,7 @@
 \usepackage{lipsum} % 只用于示例文件生成 dummy text，可删除
 
 \graphicspath{{figures/}} % 指定图片保存地址
-\bibliographystyle{gbt7714} % 指定参考文献格式文件
+\addbibresource{references.bib} % 添加参考文献数据库
 
 \begin{document}
 
@@ -23,7 +23,7 @@
 
 \include{contents/demo} % 导入正文示例
 
-\bibliography{references.bib} % 指定参考文献数据文件
+\printbibliography[heading=bibintoc] % 打印参考文献
 
 \include{contents/appendix} % 添加附录
 

@@ -33,14 +33,16 @@
 }
 
 % 支持中文
-\RequirePackage[heading=true, zihao=-4]{ctex} % heading=true 开启中文章节图表标题，zihao=-4 设置默认字号为小四
+\RequirePackage[heading=true, zihao=-4, UTF8]{ctex} % heading=true 开启中文章节图表标题，zihao=-4 设置默认字号为小四
 
 % 设置默认英文字体
 \setmainfont{Times New Roman} 
 
 % 宋体伪粗体
-\setCJKfamilyfont{zhsong}[AutoFakeBold={3.17}]{SimSun} 
-\renewcommand*{\songti}{\CJKfamily{zhsong}}
+\setCJKfamilyfont{zhsong_more_bold}[AutoFakeBold={3.17}]{SimSun}
+\renewcommand{\songti}{\CJKfamily{zhsong_more_bold}}
+
+
 
 % 国标楷体
 \setCJKfamilyfont{kaigb}[AutoFakeBold = {3.17}]{gb2312kai.ttf}
@@ -160,19 +162,16 @@
 \setlist[itemize]{nosep}  % 行高和间距与正文一致
 
 % 设置正文中参考文献的引用格式
-\RequirePackage[numbers,sort&compress,super,square]{natbib} % super = 上标，square = 方括号
+\RequirePackage[
+    backend=biber,
+    style=gb7714-2015,
+    gbnamefmt=lowercase
+]{biblatex} % 使用 biblatex + gb7714-2015 样式，启用 natbib 兼容模式
 
-% 设置参考文献样式
-\let\oldbibliography\bibliography
-\renewcommand\bibliography[1]{
-    \cleardoublepage % 修正目录中参考文献页码
-    \phantomsection % 保证目录能精确跳转到参考文献
-    \addcontentsline{toc}{chapter}{参考文献} % 把参考文献添加到目录
-    \setlength{\baselineskip}{17bp} % 行高 17bp
-    \setlength{\bibsep}{3bp} % 条目之间 3bp 间距
-    \oldbibliography{#1}
-    \setlength{\baselineskip}{20bp} % 参考文献结束，恢复到默认行高
-}
+\renewcommand{\bibfont}{\setlength{\baselineskip}{17bp}}
+
+% 设置参考文献条目间距
+\setlength{\bibitemsep}{3bp}
 
 % 其它必要的宏包
 \RequirePackage{graphicx} % 用于插入图片

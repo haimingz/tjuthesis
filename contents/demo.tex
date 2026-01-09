@@ -47,8 +47,10 @@
     f(x) = \int_{-\infty}^\infty  \hat f(x)\xi\,e^{2 \pi i \xi x}  \,\mathrm{d}\xi 
 \end{equation}
 
+% TODO: 修复多个引用时，出现英文逗号和and的问题
 测试引用参考文献：\citet{mittelbach2004} 证明 \citet{kottwitz2015} 的结论是正确的\citep{张琪昌2005}。
 测试引用多个参考文献：\citet{C-COT,ctex2022,SiamFC,SiamMask,SiamRPN,卢莉萍} 的结论是正确的\citep{白皮书2018,张琪昌2005}。
+\citet{蔡敏2006--}
 
 
 测试算法环境，如下所示：
@@ -76,7 +78,17 @@
     \caption{天津大学校徽}
     \label{fig:logo2}
 \end{figure}
+
+\begin{figure}[!h]
+    \centering\small
+    \includegraphics[width=5.5cm]{tju_logo.png}
+    \caption{天津大学校徽}
+    \label{fig:logo3}
+\end{figure}
 \cref{fig:logo2}所示为一张图片。
+
+测试引用多张图片：\cref{fig:logo,fig:logo2,fig:logo3}。
+测试引用图片、公式和表格：\cref{fig:logo,eq1,tab:test}。
 
 这里测试脚注\footnote{这是一个脚注示例。}的效果。
 这是另一个脚注\footnote{这是第二个脚注示例。}。
