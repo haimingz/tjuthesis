@@ -47,10 +47,9 @@
     f(x) = \int_{-\infty}^\infty  \hat f(x)\xi\,e^{2 \pi i \xi x}  \,\mathrm{d}\xi 
 \end{equation}
 
-% TODO: 修复多个引用时，出现英文逗号和and的问题
 测试引用参考文献：\citet{mittelbach2004} 证明 \citet{kottwitz2015} 的结论是正确的\citep{张琪昌2005}。
 测试引用多个参考文献：\citet{C-COT,ctex2022,SiamFC,SiamMask,SiamRPN,卢莉萍} 的结论是正确的\citep{白皮书2018,张琪昌2005}。
-\citet{蔡敏2006--}
+\citet{蔡敏2006--}的研究表明......\cite{C-COT,ctex2022,SiamMask,卢莉萍}。
 
 
 测试算法环境，如下所示：
@@ -65,30 +64,40 @@
         \EndFor
         \Return 某个结果
     \end{algorithmic}
+    \label{algo:test}
 \end{algorithm}
 
 \chapter{另一个章标题（一级标题）}
+\label{ch:2}
+
+\section{二级标题}
+\label{sec:2.1}
 
 测试新一章是否正确地从奇数页开始。
 
 这里测试第二章图片标号：
 \begin{figure}[!h]
     \centering\small
-    \includegraphics[width=5.5cm]{tju_logo.png}
+    \includegraphics[width=2.5cm]{tju_logo.png}
     \caption{天津大学校徽}
     \label{fig:logo2}
 \end{figure}
 
 \begin{figure}[!h]
     \centering\small
-    \includegraphics[width=5.5cm]{tju_logo.png}
+    \includegraphics[width=2.5cm]{tju_logo.png}
     \caption{天津大学校徽}
     \label{fig:logo3}
 \end{figure}
 \cref{fig:logo2}所示为一张图片。
 
 测试引用多张图片：\cref{fig:logo,fig:logo2,fig:logo3}。
+
 测试引用图片、公式和表格：\cref{fig:logo,eq1,tab:test}。
+
+测试引用算法：见\cref{algo:test}。
+
+测试引用章节：见\cref{ch:2,sec:2.1}。
 
 这里测试脚注\footnote{这是一个脚注示例。}的效果。
 这是另一个脚注\footnote{这是第二个脚注示例。}。
