@@ -39,7 +39,7 @@
 \setmainfont{Times New Roman} 
 
 % 宋体伪粗体
-\setCJKfamilyfont{zhsong}[AutoFakeBold={2.17}]{SimSun} 
+\setCJKfamilyfont{zhsong}[AutoFakeBold={3.17}]{SimSun} 
 \renewcommand*{\songti}{\CJKfamily{zhsong}}
 
 % 国标楷体
