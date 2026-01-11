@@ -1,14 +1,20 @@
-# 天津大学硕博学位论文 $\LaTeX$ 模板
+# 天津大学硕博学位论文 LaTeX 模板
 
-天津大学硕博学位论文 $\LaTeX$ 模板，依据《天津大学关于博士、硕士学位论文统一格式的规定（2021年修订）》（以下简称《规定》）编写，基于本模板排版的博士论文已经成功提交图书馆存档。
+天津大学硕博学位论文 $\LaTeX$ 模板（极简易用版），依据《天津大学关于博士、硕士学位论文统一格式的规定（2021年修订）》（以下简称《规定》）编写。基于本模板排版的博士论文已经成功提交图书馆存档。
 
-本模板功能的实现主要基于以下宏包：`ctex`、`geometry`、`fancyhdr`、`titletoc`、`caption`、`enumitem` 等。
-
-参考文献样式文件来自于 [gbt7714-bibtex-style](https://github.com/zepinglee/gbt7714-bibtex-style) 的 `gbt7714-numerical.bst`。当然，既然本模板兼容 `natbib`，使用者也可以按需选择其他参考文献样式。
+本模板功能的实现主要基于以下宏包：`ctex`、`geometry`、`fancyhdr`、`titletoc`、`caption`、`enumitem` 等。参考文献样式文件来自于 [gbt7714-bibtex-style](https://github.com/zepinglee/gbt7714-bibtex-style) 的 `gbt7714-numerical.bst`。当然，既然本模板兼容 `natbib`，使用者也可以按需选择其他参考文献样式。
 
 ## 变动日志
 
+2026-01 (感谢 @[Bob-Eric](https://github.com/Bob-Eric)):
+
+- 按照最新要求在论文扉页添加了天大logo。[#7](https://github.com/haimingz/tjuthesis/pull/7)
+- 调整了宋体粗细使其更接近Word的效果，修正了扉页宋体未生效的问题。[#7](https://github.com/haimingz/tjuthesis/pull/7)
+- 调整了扉页表格的各列默认宽度。[#7](https://github.com/haimingz/tjuthesis/pull/7)
+- 去除了不必要的图片。
+
 2025-03（感谢 @[horizon86](https://github.com/horizon86)）:
+
 - 将样式文件（sty）更改为类文件（cls）。[#4](https://github.com/haimingz/tjuthesis/pull/4)
 - 修正了目录中参考文献的页码和跳转问题。 [#3](https://github.com/haimingz/tjuthesis/pull/3)
 - 将“磅”值对应的单位从pt修正为bp。 [#2](https://github.com/haimingz/tjuthesis/pull/2)
@@ -27,18 +33,17 @@ tjuthesis
 │  ├─ demo.tex               <--- 示例           
 │  ├─ publications.tex       <--- 发表论文情况说明  
 │  └─ titlepage.tex          <--- 扉页       
-├─ figures                   <--- 图片文件夹
-│  └─ tju_logo.png           <--- 示例图片  
 ├─ gb2312kai.ttf             <--- 国标 2312 楷体字体
 ├─ gbt7714.bst               <--- 参考文献样式文件
 ├─ main.pdf                  <--- 生成的 pdf 文档               
 ├─ main.tex                  <--- 主文件（编译的入口）
 ├─ README.md                 <--- 说明文档（本文件）
 ├─ references.bib            <--- 参考文献数据库
+├─ tju_logo.png              <--- 封面页天大标志图片  
 └─ tjuthesis.cls             <--- 天津大学论文类文件
 ```
 
-其中，`main.tex` 是主文件，根目录下其他文件为必要的样式、字体、参考文献等文件。由于 LaTeX 编译长文档效率较低，因此这个示例中将论文各部分拆分为独立的子文档，保存在 `contents` 文件夹下，在撰写过程中主文件只导入部分子文件，以提高编译效率。相应地，图片保存在 `figures` 文件夹下，如果图片较多，可以按需在 `figures` 文件夹下再设文件夹。当然，此示例只提供一种可行的文件管理方案，使用者不必拘泥。
+其中，`main.tex` 是主文件，根目录下其他文件为必要的样式、字体、参考文献等文件。由于 LaTeX 编译长文档效率较低，因此这个示例中将论文各部分拆分为独立的子文档，保存在 `contents` 文件夹下，在撰写过程中主文件只导入部分子文件，以提高编译效率。当然，使用者不必拘泥于此。实际使用过程中，**建议正文各章建立独立文件夹，管理`.tex`代码和图片**。
 
 ## 使用说明
 
@@ -52,12 +57,12 @@ tjuthesis
 根据《规定》，硕博论文的格式基本相同，只有偶数页的页眉略有不同，分别为“天津大学博士学位论文”和 “天津大学硕士学位论文”。本模板提供对应选项，使用者应指定 `master` 或 `phd` 选项，即：
 
 ```latex
-\documentclass[phd]{tjustyle}
+\documentclass[phd]{tjuthesis}
 ```
 或
 
 ```latex
-\documentclass[master]{tjustyle}
+\documentclass[master]{tjuthesis}
 ```
 
 ### 页边距
@@ -70,5 +75,5 @@ tjuthesis
 因此，本模板提供了 `print` 选项，在开启时，生成用于打印的pdf，采用打印版页边距设置，即：内侧 35.7mm、外侧 27.7mm。不开启 `print` 选项时，生成电子版pdf，左右页边距都为 31.7mm。示例：
 
 ```latex
-\documentclass[phd, print]{tjustyle}
+\documentclass[phd, print]{tjuthesis}
 ```
