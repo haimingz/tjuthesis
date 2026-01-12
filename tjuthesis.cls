@@ -168,9 +168,10 @@
     gbmedium=false, % 不显示文献载体类型（去掉[J/OL]中的OL）（可选）
     % url=false, % 不显示 URL （可选）
     doi=false, % 不显示 DOI（可选）
-]{biblatex} % 使用 biblatex + gb7714-2015 样式，启用 natbib 兼容模式
+]{biblatex} % 用于处理参考文献的包
 \renewcommand{\bibfont}{\setlength{\baselineskip}{17bp}} % 设置参考文献行高为 17bp
 \setlength{\bibitemsep}{3bp} % 设置参考文献条目间距为 3bp
+\renewbibmacro*{in:}{\printtext{\addperiod\addspace}}% 把[C]后面的“//”换成“.”
 
 % 其它必要的宏包
 \RequirePackage{graphicx} % 用于插入图片
