@@ -159,19 +159,17 @@
 \setlist[itemize]{nosep}  % 行高和间距与正文一致
 
 % 设置正文中参考文献的引用格式
-\RequirePackage[numbers,sort&compress,super,square]{natbib} % super = 上标，square = 方括号
-
-% 设置参考文献样式
-\let\oldbibliography\bibliography
-\renewcommand\bibliography[1]{
-    \cleardoublepage % 修正目录中参考文献页码
-    \phantomsection % 保证目录能精确跳转到参考文献
-    \addcontentsline{toc}{chapter}{参考文献} % 把参考文献添加到目录
-    \setlength{\baselineskip}{17bp} % 行高 17bp
-    \setlength{\bibsep}{3bp} % 条目之间 3bp 间距
-    \oldbibliography{#1}
-    \setlength{\baselineskip}{20bp} % 参考文献结束，恢复到默认行高
-}
+\RequirePackage[
+    backend=biber, % 后端，可选项有 biber 和 bibtex
+    natbib=true, % 启用 natbib 兼容模式
+    style=gb7714-2015, % 使用国标 GB/T 7714-2015 样式
+    gbnamefmt=lowercase, % 英文作者姓名小写格式
+    gbmedium=false, % 不显示文献载体类型（去掉[J/OL]中的OL）（可选）
+    % url=false, % 不显示 URL （可选）
+    doi=false, % 不显示 DOI（可选）
+]{biblatex} % 使用 biblatex + gb7714-2015 样式，启用 natbib 兼容模式
+\renewcommand{\bibfont}{\setlength{\baselineskip}{17bp}} % 设置参考文献行高为 17bp
+\setlength{\bibitemsep}{3bp} % 设置参考文献条目间距为 3bp
 
 % 其它必要的宏包
 \RequirePackage{graphicx} % 用于插入图片
