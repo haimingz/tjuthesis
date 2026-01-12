@@ -2,7 +2,9 @@
 
 天津大学硕博学位论文 $\LaTeX$ 模板（极简易用版），依据《天津大学关于博士、硕士学位论文统一格式的规定（2021年修订）》（以下简称《规定》）编写。基于本模板排版的博士论文已经成功提交图书馆存档。
 
-本模板功能的实现主要基于以下宏包：`ctex`、`geometry`、`fancyhdr`、`titletoc`、`caption`、`enumitem` 等。参考文献样式文件来自于 [gbt7714-bibtex-style](https://github.com/zepinglee/gbt7714-bibtex-style) 的 `gbt7714-numerical.bst`。当然，既然本模板兼容 `natbib`，使用者也可以按需选择其他参考文献样式。
+本模板功能的实现主要基于以下宏包：`ctex`、`geometry`、`fancyhdr`、`titletoc`、`caption`、`enumitem` 、`biblatex`等。
+
+欢迎试用，提issue，pr🤝
 
 ## 变动日志
 
