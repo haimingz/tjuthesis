@@ -152,6 +152,7 @@
 \captionsetup{labelsep=space} % 设置图表编号与图表题注之间以空格分隔
 \captionsetup[figure]{position=below} % 稍微减小图表题注的上下间距（optional）
 \captionsetup[table]{position=above, skip=5bp} % 稍微减小图表题注的上下间距（optional）
+\captionsetup{font=small} % 设置图表题注字号为五号
 
 % 设置列表格式
 \RequirePackage[shortlabels]{enumitem} % 用于自定义列表编号样式
