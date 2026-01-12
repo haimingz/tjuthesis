@@ -1,37 +1,96 @@
 
 \chapter{章标题（一级标题）}
 
-\section{节标题（二级标题）}
+\section{大段文字}
 
-测试大段文字。\zhlipsum[5-8] % dummy text
+测试大段文字。\zhlipsum[1-2] % dummy text
 
 \begin{enumerate}[（1）]
-    \item 测试列表条目
-    \item 测试列表条目 
-    \begin{enumerate}[（i）]
-        \item 嵌套列表条目
-        \item 嵌套列表条目
-    \end{enumerate}
+    \item 测试列表条目 \zhlipsum[1]
+    \item 测试列表条目 \zhlipsum[1]
 \end{enumerate}
+
+\subsection{图表}
 
 这里测试插入图片：
 \begin{figure}[!h]
     \centering\small
-    \includegraphics[width=5.5cm]{tju_logo.png}
-    \caption{天津大学校徽}
-    \label{fig:logo}
+    \includegraphics[width=8cm]{example-image}
+    \caption{示例图片}
+    \label{fig1}
 \end{figure}
-图~\ref{fig:logo} 所示为一张图片。
+\cref{fig1}所示为一张图片。
 
-\subsection{小节标题（三级标题）}
+这里测试插入表格：
+\begin{table}[!htb]
+    \centering\small
+    \caption{测试表格\citep{smith2024}}
+    \begin{tabular}{ccc}
+        \toprule
+        序号 & 姓名 & 年龄 \\
+        \midrule
+        1  & 张三 & 20 \\
+        2  & 李四 & 22 \\
+        3  & 王五 & 21 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:test}
+\end{table}
+\cref{tab:test}所示为一张表格。
 
-测试公式，如公式~\eqref{eq1}~所示：
+\subsection{公式}
+
+测试公式，如\cref{eq1}所示：
 \begin{equation}\label{eq1}
     f(x) = \int_{-\infty}^\infty  \hat f(x)\xi\,e^{2 \pi i \xi x}  \,\mathrm{d}\xi 
 \end{equation}
+\begin{equation}
+    A_{m\times n}=  
+        \begin{bmatrix}  
+            a_{11}& a_{12}& \cdots  & a_{1n} \\  
+            a_{21}& a_{22}& \cdots  & a_{2n} \\  
+            \vdots & \vdots & \ddots & \vdots \\  
+            a_{m1}& a_{m2}& \cdots  & a_{mn}  
+        \end{bmatrix}  
+    =\left [ a_{ij}\right ] 
+\end{equation}
 
-测试引用参考文献：\citet{mittelbach2004} 证明 \citet{kottwitz2015} 的结论是正确的\citep{张琪昌2005}。
+\subsection{引用}
+
+测试引用参考文献：\citet{zhang2023} 证明 \citet{lee2025} 的结论是正确的\citep{lisi2022}。
+测试引用多个参考文献：\citet{brown2026,zhao2024,wilson2023} 的结论是正确的\citep{zhou2025,zhao2024}。
+\citet{lisi2022}的研究表明\cite{zhang2023,lee2025,zhou2025}。
 
 \chapter{另一个章标题（一级标题）}
+\label{ch:2}
 
 测试新一章是否正确地从奇数页开始。
+
+\section{复杂引用（基于Cleveref）}
+\label{sec:2.1}
+
+这里测试第二章图片标号：
+\begin{figure}[!h]
+    \centering\small
+    \includegraphics[width=5cm]{example-image}
+    \caption{示例图片}
+    \label{fig2}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering\small
+    \includegraphics[width=5cm]{example-image}
+    \caption{示例图片}
+    \label{fig3}
+\end{figure}
+
+测试引用多张图片：\cref{fig1,fig2,fig3}。
+
+测试引用图片、公式和表格：\cref{fig1,eq1,tab:test}。
+
+测试引用章节：见\cref{ch:2,sec:2.1}。
+
+\subsection{脚注}
+
+这里测试脚注\footnote{这是一个脚注示例。}的效果。
+这是另一个脚注\footnote{这是第二个脚注示例。}。
