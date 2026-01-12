@@ -9,9 +9,11 @@
 2026-01 (感谢 @[Bob-Eric](https://github.com/Bob-Eric)):
 
 - 按照最新要求在论文扉页添加了天大logo。[#7](https://github.com/haimingz/tjuthesis/pull/7)
-- 调整了宋体粗细使其更接近Word的效果，修正了扉页宋体未生效的问题。[#7](https://github.com/haimingz/tjuthesis/pull/7)
-- 调整了扉页表格的各列默认宽度。[#7](https://github.com/haimingz/tjuthesis/pull/7)
-- 去除了不必要的图片。
+- 文献管理从natbib切换至biblatex。[#8](https://github.com/haimingz/tjuthesis/pull/8)
+- 使用cleveref更方便地交叉引用。[#8](https://github.com/haimingz/tjuthesis/pull/8)
+- 修正了若干字体字号、表格宽度、参考文献格式的问题。[#7](https://github.com/haimingz/tjuthesis/pull/7) [#8](https://github.com/haimingz/tjuthesis/pull/8)
+- 添加了一个用于vscode的setting文件。
+- 更新了示例文件。
 
 2025-03（感谢 @[horizon86](https://github.com/horizon86)）:
 
@@ -25,6 +27,8 @@
 
 ```txt
 tjuthesis
+├─ .vscode                   
+│  ├─ settings.json          <--- vscode 配置文件，自动生效 
 ├─ contents                  <--- 论文各部分 
 │  ├─ abstract.tex           <--- 摘要       
 │  ├─ acknowledgements.tex   <--- 致谢
@@ -33,8 +37,8 @@ tjuthesis
 │  ├─ demo.tex               <--- 示例           
 │  ├─ publications.tex       <--- 发表论文情况说明  
 │  └─ titlepage.tex          <--- 扉页       
-├─ gb2312kai.ttf             <--- 国标 2312 楷体字体
-├─ gbt7714.bst               <--- 参考文献样式文件
+├─ cleveref-format.sty       <--- 重新定义了一些 cleveref 命令（用于中文交叉引用）
+├─ gb2312kai.ttf             <--- GB2312 楷体字体（版权声明页需要）
 ├─ main.pdf                  <--- 生成的 pdf 文档               
 ├─ main.tex                  <--- 主文件（编译的入口）
 ├─ README.md                 <--- 说明文档（本文件）
@@ -48,7 +52,6 @@ tjuthesis
 ## 使用说明
 
 ### 扉页
-
 
 本着奥卡姆剃刀原则，不对论文扉页做过度封装。使用者可根据实际情况，直接对照《规定》附录B 修改 `titlepage.tex` 中的“基本信息表”和“答辩委员会名单表”。
 
@@ -77,3 +80,20 @@ tjuthesis
 ```latex
 \documentclass[phd, print]{tjuthesis}
 ```
+### 编辑、编译
+
+除了 LaTeX 本体外，还需安装以下东西：
+
+- 为了使用自动编译工具 latexmk，需安装 [perl](https://www.perl.org/get.html)。
+- 推荐使用 vscode 作为编辑器 + 拓展 latex-workshop。
+
+在 vscode + latex-workshop 的环境中，需要进行一系列设置。本模板提供了`.vscode/settings.json`文件，包含了所需的基础设置。
+
+- 编译链、编译工具（默认使用 latexmk + xelatex）。
+- 需要清理的“中间文件”列表。
+- 设置 vscode 的文件列表中不显示“中间文件”。
+- 设置 vscode 编辑器行高为1.8 （更适合文档编写）。
+
+该设置文件只在当前目录下生效，会覆盖 vscode 的全局设置。也就是说，如果你懒得折腾，应该无需手动改设置就能用了。
+
+
