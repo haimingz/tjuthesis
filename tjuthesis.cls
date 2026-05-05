@@ -53,8 +53,9 @@
     chapter={ % 一级标题样式
         format={\heiti\zihao{-3}\centering}, % 黑体小三居中
         number=\arabic{chapter}, % 采用阿拉伯数字编号
-        beforeskip=30bp, % 段前间距 （规定 30~36 bp 之间）
-        afterskip=30bp, % 段后间距 （规定 30~36 bp 之间）
+        fixskip=true, % 消除 LaTeX 默认在章标题前后添加的固定空白
+        beforeskip=16bp, % 段前间距 （规定 30~36 bp 之间，调小一些以抵消页眉横线下面的空白）
+        afterskip=36bp, % 段后间距 （规定 30~36 bp 之间）
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     }, 
     section={ % 二级标题样式
