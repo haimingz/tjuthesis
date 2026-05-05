@@ -6,7 +6,11 @@
 
 欢迎试用，提issue，pr🤝
 
-## 变动日志
+## 近期变动日志
+
+2026-05-05:
+
+- 修正了章节标题前后间距过大的问题。[#16](https://github.com/haimingz/tjuthesis/issues/16)
 
 2026-01-29:
 
@@ -21,11 +25,6 @@
 - 添加了一个用于vscode的setting文件。
 - 更新了示例文件。
 
-2025-03（感谢 @[horizon86](https://github.com/horizon86)）:
-
-- 将样式文件（sty）更改为类文件（cls）。[#4](https://github.com/haimingz/tjuthesis/pull/4)
-- 修正了目录中参考文献的页码和跳转问题。 [#3](https://github.com/haimingz/tjuthesis/pull/3)
-- 将“磅”值对应的单位从pt修正为bp。 [#2](https://github.com/haimingz/tjuthesis/pull/2)
 
 ## 文件说明
 
