@@ -8,6 +8,9 @@
 
 ## 近期变动日志
 
+2026-05-10：
+- 严格遵照《规定》，将参考文献样式从 GB/T 7714-2015 切换回 GB/T 7714-2005，虽然后者已经停用。[#17](https://github.com/haimingz/tjuthesis/issues/17)
+
 2026-05-05:
 
 - 修正了章节标题前后间距过大的问题。[#16](https://github.com/haimingz/tjuthesis/issues/16)
