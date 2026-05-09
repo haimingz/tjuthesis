@@ -164,7 +164,7 @@
 \RequirePackage[
     backend=biber, % 后端，可选项有 biber 和 bibtex
     natbib=true, % 启用 natbib 兼容模式
-    style=gb7714-2015, % 使用国标 GB/T 7714-2005 样式
+    style=gb7714-2005, % 使用国标 GB/T 7714-2005 样式
     gbnamefmt=quanpin, % 遵守 GBT7714-2005 版要求，名不缩写
     gbmedium=false, % 不显示文献载体类型（去掉[J/OL]中的OL）（可选）
     % url=false, % 不显示 URL （可选）
