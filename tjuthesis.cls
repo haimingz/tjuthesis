@@ -49,7 +49,6 @@
 % 基于ctex包设置各级标题样式
 \ctexset{
     contentsname={目 \quad 录}, % 目录的标题 
-    secnumdepth=3, % 标题编号深度（3 = subsubsection，即四级标题）
     chapter={ % 一级标题样式
         format={\heiti\zihao{-3}\centering}, % 黑体小三居中
         number=\arabic{chapter}, % 采用阿拉伯数字编号
@@ -77,6 +76,7 @@
         aftername=~, % 标题编号与标题内容之间键入1个空格。
     },
 }
+\setcounter{secnumdepth}{3} % 兼容低版本 ctex：secnumdepth 不支持作为 ctexset 键
 
 % 自定义页眉页脚
 \RequirePackage{fancyhdr}
