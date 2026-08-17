@@ -103,4 +103,12 @@ tjuthesis
 
 该设置文件只在当前目录下生效，会覆盖 vscode 的全局设置。也就是说，如果你懒得折腾，应该无需手动改设置就能用了。
 
+### 跨平台字体问题
 
+- 模板直接使用 `Times New Roman`、 `SimSun`（中易宋体） ，Linux/macOS 平台需手动安装。
+- `gb2312kai.ttf` 扉页使用，已随模板提供，无需安装。
+- 其余字体未明确指定，由 `ctex` 按平台自动选择。不同平台这些字体的差别很小，而且模版没有明确要求，建议不必过于强迫症。但如果需要严格复现 Windows 字体效果，得设置 `ctex` 的 `fontset=windows`，并安装 `SimSun`、`SimHei`、`KaiTi` 和 `FangSong`，特此说明。
+
+### 参考文献作者姓名格式设置
+
+模板默认使用 `gbnamefmt=quanpin`：姓名的首字母大写、名不缩写。GB/T 7714-2005 要求用汉语拼音书写的中国著者姓名不得缩写；由于程序无法区分拼音姓名和英文姓名，默认将所有著者的名均完整写出。详细讨论请参加 [#17](https://github.com/haimingz/tjuthesis/issues/17)。
