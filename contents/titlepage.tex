@@ -1,63 +1,68 @@
 % 扉页
 
 \pagestyle{empty} % 去除页眉页脚
+\thispagestyle{empty}
 
-\begin{center} % 本页内容居中
+\begin{center}
+\songti
 
-\songti % 设置字体为宋体
+% 分类号与学校信息
+{\zihao{4}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{0.68\textwidth}@{}p{0.32\textwidth}@{}}
+    中图分类号\underline{\makebox[5em][c]{XXXX}} & 学校代码\underline{\makebox[5em][c]{XXXXX}} \\
+    UDC 分类号\underline{\makebox[5em][c]{XXXX}} & 密\hspace{2em}级\underline{\makebox[5em][c]{XXXXX}} \\
+\end{tabular}
+\par}
 
-\includegraphics[height=1.75cm]{tju_logo.png} % 设置校徽（20250605更新）
+\vspace{0.5cm}
 
-\vspace*{0.8cm} % 根据需要调整距离
+{\fzxbs\zihao{-1}\selectfont 天津大学博士学位论文\par}
 
-\zihao{2}\textbf{中文题目（宋体二号加粗）}
+\vspace{0.4cm}
 
-\vspace{0.8cm} % 根据需要调整距离
+{\songti\zihao{3}\selectfont （学术学位）\par}
 
-\zihao{4}\textbf{English Title（Times New Roman, 14-22 pt., Bold）}
+\vspace{0.4cm}
+
+{\zihao{2}\textbf{中文题目（宋体二号加粗）}\par}
 
 \vfill
 
-\zihao{-4} % 切换为小四字号绘制下面两个表格
+% 基本信息
+\newlength{\coverlabelwidth}
+\newcommand{\coverfield}[2]{%
+    \settowidth{\coverlabelwidth}{#1}%
+    #1\underline{\makebox[\dimexpr 23em-\coverlabelwidth\relax][c]{#2}}%
+}
+{\zihao{-4}\bfseries
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{@{}l@{}}
+    \coverfield{一级学科：}{填写中文名称} \\
+    \coverfield{研究方向（领域）：}{填写中文名称} \\
+    \coverfield{作者姓名：}{XXX} \\
+    \coverfield{导师姓名、职称：}{只填写系统导师一人} \\
+\end{tabular}
+\par}
 
-% 基本信息表
-\begin{table}[h] 
-    \centering 
-    \songti
-    \renewcommand*{\arraystretch}{1.35} % 设置行高
-    \begin{tabular}{cc}
-        \textbf{一级学科:} & \textbf{\underline{\makebox[14em][c]{输入}}} \\
-        \textbf{研究方向:} & \textbf{\underline{\makebox[14em][c]{输入}}} \\
-        \textbf{作者姓名:} & \textbf{\underline{\makebox[14em][c]{输入}}} \\
-        \textbf{指导教师:} & \textbf{\underline{\makebox[14em][c]{输入}}} \\
-    \end{tabular}
-\end{table}
+\vspace{1.3cm}
 
-\vspace{0.5cm}  % 根据需要调整距离
-
-% 答辩委员会名单表，可根据实际答辩委员数增加行数，注意同时修改 \multirow 的第一个参数
-\begin{table}[h] 
-    \centering 
-    \songti
-    \renewcommand*{\arraystretch}{1.35} % 设置行高
-    \begin{tabular}{|C{0.22\textwidth}|C{0.16\textwidth}|C{0.14\textwidth}|C{0.36\textwidth}|}
+% 答辩委员会名单表，可根据实际人数增加委员行数，并同步修改 \multirow 的第一个参数
+{\zihao{-4}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|C{0.22\textwidth}|C{0.22\textwidth}|C{0.22\textwidth}|C{0.22\textwidth}|}
     \hline
-    \textbf{答辩日期}              & \multicolumn{3}{c|}{20XX年XX月XX日} \\ \hline
-    \textbf{答辩委员会}            &  \textbf{姓名} &  \textbf{职称} &  \textbf{工作单位}  \\ \hline
-    \textbf{主席}                  &  某某某    &   教授         &      天津大学     \\ \hline
-    \multirow{6}{*}{\textbf{委员}} &                &                &                     \\ \cline{2-4} 
-                                   &                &                &                     \\ \cline{2-4}
-                                   &                &                &                     \\ \cline{2-4}
-                                   &                &                &                     \\ \cline{2-4}
-                                   &                &                &                     \\ \cline{2-4}
-                                   &                &                &                     \\ \hline
-    \end{tabular}
-\end{table}
+    \textbf{答辩日期} & \multicolumn{3}{c|}{20\hspace{2em}年\hspace{2em}月\hspace{2em}日} \\ \hline
+    \textbf{答辩委员会} & \textbf{姓名} & \textbf{职称} & \textbf{工作单位} \\ \hline
+    \textbf{主席} & & & \\ \hline
+    \multirow{2}{*}{\textbf{委员}} & & & \\ \cline{2-4}
+    & & & \\ \hline
+\end{tabular}
+\par}
 
-\vspace{0.5cm}  % 根据需要调整距离
+\vspace{1.0cm}
 
-\zihao{4}{天津大学XXXX学院\\二〇XX年XX月}
+{\zihao{-4}XXXX学院\par}
+{\zihao{-4}二〇XX年XX月\par}
 
-\vspace{0.5cm}  % 根据需要调整距离
-
-\end{center} % 停止居中
+\end{center}

@@ -8,25 +8,8 @@
 
 ## 近期变动日志
 
-2026-05-10：
-- 严格遵照《规定》，将参考文献样式从 GB/T 7714-2015 切换回 GB/T 7714-2005，虽然后者已经停用。[#17](https://github.com/haimingz/tjuthesis/issues/17)
-
-2026-05-05:
-
-- 修正了章节标题前后间距过大的问题。[#16](https://github.com/haimingz/tjuthesis/issues/16)
-
-2026-01-29:
-
-- 弃用 cleveref：非必须且有严重的兼容性问题。
-
-2026-01 (感谢 @[Bob-Eric](https://github.com/Bob-Eric)):
-
-- 按照最新要求在论文扉页添加了天大logo。[#7](https://github.com/haimingz/tjuthesis/pull/7)
-- 文献管理从natbib切换至biblatex。[#8](https://github.com/haimingz/tjuthesis/pull/8)
-- 使用cleveref更方便地交叉引用。[#8](https://github.com/haimingz/tjuthesis/pull/8)
-- 修正了若干字体字号、表格宽度、参考文献格式的问题。[#7](https://github.com/haimingz/tjuthesis/pull/7) [#8](https://github.com/haimingz/tjuthesis/pull/8)
-- 添加了一个用于vscode的setting文件。
-- 更新了示例文件。
+2026-11-25：
+- 更新扉页（2026年11月版）[#25](https://github.com/haimingz/tjuthesis/issues/25)。
 
 
 ## 文件说明
@@ -45,12 +28,12 @@ tjuthesis
 │  ├─ demo.tex               <--- 示例           
 │  ├─ publications.tex       <--- 发表论文情况说明  
 │  └─ titlepage.tex          <--- 扉页       
+├─ fzxbsjw.ttf               <--- 方正小标宋简体（封面需要）
 ├─ gb2312kai.ttf             <--- GB2312 楷体字体（版权声明页需要）
 ├─ main.pdf                  <--- 生成的 pdf 文档               
 ├─ main.tex                  <--- 主文件（编译的入口）
 ├─ README.md                 <--- 说明文档（本文件）
 ├─ references.bib            <--- 参考文献数据库
-├─ tju_logo.png              <--- 封面页天大标志图片  
 └─ tjuthesis.cls             <--- 天津大学论文类文件
 ```
 
@@ -106,7 +89,7 @@ tjuthesis
 ### 跨平台字体问题
 
 - 模板直接使用 `Times New Roman`、 `SimSun`（中易宋体） ，Linux/macOS 平台需手动安装。
-- `gb2312kai.ttf` 扉页使用，已随模板提供，无需安装。
+- `gb2312kai.ttf` （GB2312 楷体字体）和 `fzxbsjw.ttf` （方正小标宋简体）已随模板提供，分别用于版权声明页和封面，无需安装。
 - 其余字体未明确指定，由 `ctex` 按平台自动选择。不同平台这些字体的差别很小，而且模版没有明确要求，建议不必过于强迫症。但如果需要严格复现 Windows 字体效果，得设置 `ctex` 的 `fontset=windows`，并安装 `SimSun`、`SimHei`、`KaiTi` 和 `FangSong`，特此说明。
 
 ### 参考文献作者姓名格式设置
