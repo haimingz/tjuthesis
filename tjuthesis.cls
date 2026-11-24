@@ -42,6 +42,10 @@
 \setCJKfamilyfont{zhsong}[AutoFakeBold={3.17}]{SimSun} 
 \renewcommand*{\songti}{\CJKfamily{zhsong}}
 
+% 方正小标宋简体
+\setCJKfamilyfont{fzxbs}{fzxbsjw.ttf}
+\newcommand{\fzxbs}{\CJKfamily{fzxbs}}
+
 % 国标楷体
 \setCJKfamilyfont{kaigb}[AutoFakeBold = {3.17}]{gb2312kai.ttf}
 \newcommand{\kaigb}{\CJKfamily{kaigb}}  
